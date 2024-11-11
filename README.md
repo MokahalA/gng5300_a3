@@ -18,7 +18,7 @@ A **detailed report** explaining the design and implementation of the system has
 
 ## How to Run
 
-**NOTE:** You must have a locally installed version of Ollama and the llama3.2:3b model to be able to run the chatbot.
+**NOTE:** You must have a locally installed version of Ollama and the llama3.2:3b model to be able to run the chatbot. (16GB of RAM needed)
 
 https://ollama.com/library/llama3.2:3b 
 
