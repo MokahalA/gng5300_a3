@@ -1,0 +1,49 @@
+ID,product_name,description,category,stock,price
+1,Hydrating Face Cream,Rich hydrating cream with hyaluronic acid.,Moisturizers,10,15.75
+2,Oil-Free Moisturizer,Lightweight moisturizer for oily skin.,Moisturizers,10,16.5
+3,Anti-Aging Night Cream,Overnight cream to reduce fine lines.,Moisturizers,10,17.25
+4,Daily Moisturizer SPF 30,Moisturizer with sun protection.,Moisturizers,10,18.0
+5,Aloe Vera Gel,Soothing gel for irritated skin.,Moisturizers,10,18.75
+6,Cica Repair Balm,Healing balm for damaged skin.,Moisturizers,10,19.5
+7,Vitamin C Moisturizer,Brightening moisturizer with antioxidants.,Moisturizers,10,20.25
+8,Water Gel Cream,Ultra-light water-based gel cream.,Moisturizers,0,21.0
+9,Collagen Face Lotion,Firming lotion for smoother skin.,Moisturizers,10,21.75
+10,Matte Finish Moisturizer,Oil-control moisturizer for matte skin.,Moisturizers,10,22.5
+11,Shea Butter Face Cream,Deeply nourishing cream with shea butter.,Moisturizers,10,23.25
+12,Green Tea Moisturizer,Calming moisturizer with green tea extract.,Moisturizers,10,24.0
+13,Foaming Facial Cleanser,Gentle foaming cleanser for daily use.,Cleansers,10,24.75
+14,Exfoliating Cleanser,Cleanser with microbeads for exfoliation.,Cleansers,10,25.5
+15,Hydrating Gel Cleanser,Hydrating formula for dry skin.,Cleansers,10,26.25
+16,Charcoal Face Wash,Detoxifying wash with activated charcoal.,Cleansers,10,27.0
+17,Micellar Water Cleanser,No-rinse cleanser with micelles.,Cleansers,10,27.75
+18,Acne Control Cleanser,Salicylic acid cleanser for acne-prone skin.,Cleansers,10,28.5
+19,Brightening Face Wash,Cleanser with brightening ingredients.,Cleansers,10,29.25
+20,Cream Cleanser,Gentle cleanser for sensitive and dry skin.,Cleansers,10,30.0
+21,Vitamin E Cleanser,Antioxidant-rich cleanser for soft skin.,Cleansers,10,30.75
+22,Green Tea Cleanser,Refreshes and purifies the skin.,Cleansers,10,31.5
+23,Coconut Milk Cleanser,Nourishing cleanser with coconut milk.,Cleansers,10,32.25
+24,Detox Clay Cleanser,Deep-cleaning clay-based cleanser.,Cleansers,10,33.0
+25,Hyaluronic Acid Serum,Deeply hydrating serum with hyaluronic acid.,Serums,0,33.75
+26,Vitamin C Brightening Serum,Brightening serum with vitamin C.,Serums,10,34.5
+27,Retinol Anti-Aging Serum,Serum with retinol for fine lines.,Serums,10,35.25
+28,Niacinamide Serum,Pore-minimizing serum with niacinamide.,Serums,10,36.0
+29,BHA Exfoliating Serum,Serum for exfoliating dead skin cells.,Serums,10,36.75
+30,Peptide Serum,Boosts collagen production and firms skin.,Serums,10,37.5
+31,Ceramide Repair Serum,Replenishes and strengthens skin barrier.,Serums,10,38.25
+32,Rosehip Oil Serum,Rich in antioxidants for glowing skin.,Serums,10,39.0
+33,Anti-Redness Serum,Calms and soothes irritated skin.,Serums,10,39.75
+34,Collagen Booster Serum,Enhances skin elasticity and smoothness.,Serums,10,40.5
+35,Hydrating Aloe Serum,Moisture-boosting serum with aloe vera.,Serums,10,41.25
+36,Lactic Acid Serum,Gentle exfoliation for smoother skin.,Serums,10,42.0
+37,Mineral Sunscreen SPF 50,Broad-spectrum mineral sunscreen.,Sunscreens,0,42.75
+38,Lightweight Gel Sunscreen,Non-greasy gel sunscreen for oily skin.,Sunscreens,10,43.5
+39,Tinted Sunscreen SPF 30,Sunscreen with a hint of color.,Sunscreens,10,44.25
+40,Anti-Aging SPF 50,Sunscreen with anti-aging peptides.,Sunscreens,10,45.0
+41,Water-Resistant Sunscreen,Perfect for swimming and outdoor activities.,Sunscreens,10,45.75
+42,Sensitive Skin Sunscreen,Gentle formula for sensitive skin.,Sunscreens,10,46.5
+43,Matte Finish Sunscreen,Oil-free sunscreen with a matte finish.,Sunscreens,10,47.25
+44,Daily UV Shield SPF 40,Everyday protection against UV rays.,Sunscreens,10,48.0
+45,Vitamin E Sunscreen,Hydrating sunscreen with vitamin E.,Sunscreens,10,48.75
+46,Invisible Zinc Sunscreen,Clear formula with zinc oxide.,Sunscreens,10,49.5
+47,Moisturizing Sunscreen SPF 35,Hydrating formula with sun protection.,Sunscreens,10,50.25
+48,Cooling Aloe Sunscreen,Sunscreen with soothing aloe vera.,Sunscreens,10,51.0
