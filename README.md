@@ -1,6 +1,6 @@
 # Shopping Assistant Chatbot
 
-This is a skincare products command-line chatbot implementation using LangGraph for assignment #3.
+This is a skincare products command-line chatbot implementation using LangGraph.
 
 Name: Ahmad El Mokahal
 
