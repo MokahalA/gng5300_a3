@@ -2,10 +2,6 @@
 
 This is a skincare products command-line chatbot implementation using LangGraph.
 
-Name: Ahmad El Mokahal
-
-ID: 300059298
-
 ## Folder Structure
 - `chatbot.py`: Main entry point of the application which runs the chatbot & implements the graph.
 - `setup.py`: This file must be run in order to set up the SQLite database files.
