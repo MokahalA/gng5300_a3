@@ -18,31 +18,6 @@ Available as both a **Command Line Interface (CLI)** and a **React Web Applicati
 - 📋 **Policy Information** - Shipping, returns, and payment details
 - 🔧 **Debug Mode** (Web) - View all tool calls and LLM interactions
 
----
-
-## 📁 Project Structure
-
-```
-gng5300_a3/
-├── chatbot.py              # CLI chatbot entry point
-├── api.py                  # FastAPI backend for web frontend
-├── assistant.py            # LangGraph State and Assistant classes
-├── tools.py                # LangChain tools (search, cart, policies)
-├── vector_search.py        # Semantic search with sentence-transformers
-├── setup.py                # Database initialization script
-├── skincare_products.csv   # Product data (48 skincare products)
-├── requirements.txt        # Python dependencies
-├── frontend/               # React web application
-│   ├── src/
-│   │   ├── App.jsx         # Main React component
-│   │   └── index.css       # Styles
-│   └── package.json
-└── docs/                   # Documentation & assets
-    ├── A3_Report.pdf       # Detailed design report
-    ├── Chatbot-Demo.png    # Web frontend screenshot
-    ├── CLI-Demo.png        # CLI screenshot
-    └── graph_diagram.png   # LangGraph workflow diagram
-```
 
 A **draft report** explaining the design and implementation of the basic LangChain graphs has been provided in the repository as [`docs/A3_Report.pdf`](docs/A3_Report.pdf). You may also access the report via the following [Google Docs link](https://docs.google.com/document/d/1phvv-uX34RrG9w8Xt4ZW_MiRagiqWRdcWMDiYbSb778/edit?usp=sharing).
 
@@ -153,16 +128,6 @@ npm run dev
 
 Navigate to **http://localhost:5173**
 
-### Web Frontend Features
-
-| Feature | Description |
-|---------|-------------|
-| 💬 **Chat Interface** | Natural conversation with the skincare assistant |
-| 🛒 **Cart Sidebar** | Real-time view of your shopping cart |
-| 🔧 **Debug Panel** | Expandable panel showing all tool calls and LLM reasoning |
-| ✅ **Confirmations** | Dialogs to confirm add/remove cart actions |
-
----
 
 ## 🛠️ Troubleshooting
 
@@ -172,8 +137,3 @@ Navigate to **http://localhost:5173**
 
 **Slow first response**: The vector search model loads on first query; subsequent queries are faster
 
----
-
-## 📝 License
-
-This project was created for GNG5300 Assignment 3.
