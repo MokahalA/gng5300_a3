@@ -1,5 +1,14 @@
 # 🧴 Skincare Shopping Assistant Chatbot
 
+![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-🦜-green?style=flat)
+![LangGraph](https://img.shields.io/badge/LangGraph-0.2-1C3C3C?style=flat)
+![Ollama](https://img.shields.io/badge/Ollama-Llama_3.2-black?style=flat)
+![FAISS](https://img.shields.io/badge/FAISS-Vector_Search-blue?style=flat)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=black)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=flat&logo=fastapi&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=flat&logo=sqlite&logoColor=white)
+
 A skincare product shopping assistant built with **LangGraph** and **Ollama** (powered by the Llama 3.2 model). Features semantic search powered by vector embeddings to help customers find products based on their skin concerns.
 
 Available as both a **Command Line Interface (CLI)** and a **React Web Application**.
