@@ -16,6 +16,7 @@ from tools import (
     get_shipping_policy,
     get_payment_methods,
 )
+from vector_search import semantic_product_search
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import ToolMessage
@@ -75,17 +76,31 @@ def main():
     # Initialize the LLM model
     llm = ChatOllama(
         model="llama3.2:3b",
-        temperature=1,
+        temperature=0.1,  # Very low temperature for consistent behavior
     )
 
     assistant_prompt = ChatPromptTemplate.from_messages([
         (
             "system",
-            "You are a helpful customer support assistant for the Skincare Products company."
-            "Reply in a friendly way whenever the user says Hello or Hi and Greet them in your first response."
-            "Provide a good detailed response to the questions you are asked."
-            "Do not provide answers about products that are outside the tools available to you such as the database."
-            "If a tool returns an empty response, kindly ask the user to rephrase their question or provide more details."
+            """You are a customer support assistant for a Skincare Products store.
+
+TOOL SELECTION - VERY IMPORTANT:
+- For skin concerns (oily, dry, acne, sensitive, aging): USE semantic_product_search
+- For specific product names: USE search_product_by_name  
+- For cart actions: USE add_to_cart, remove_from_cart, view_cart
+
+EXAMPLES:
+- "I have oily skin" → semantic_product_search(query="oily skin")
+- "products for dry skin under $30" → semantic_product_search(query="dry skin", max_price=30)
+- "find the Vitamin C Serum" → search_product_by_name(product_name="Vitamin C")
+
+RULES:
+- Always use the products returned by tools - never make up products
+- If tool returns empty or error, tell the user honestly
+- If add_to_cart fails with OUT OF STOCK, apologize and suggest alternatives
+- Be concise
+
+CATEGORIES: Moisturizers, Cleansers, Serums, Sunscreens, Masks, Toners"""
         ),
         ("placeholder", "{messages}")
     ])
@@ -95,6 +110,7 @@ def main():
         get_product_categories,
         search_product_by_name,
         get_recommendations,
+        semantic_product_search,  # Vector-based semantic search
         view_cart,
         get_delivery_time,
         get_returns_policy,
@@ -167,6 +183,21 @@ def main():
         
         # Skip empty inputs
         if not user_input:
+            continue
+
+        # Handle greetings without using tools
+        greeting_words = ['hello', 'hi', 'hey', 'good morning', 'good afternoon', 
+                         'good evening', 'greetings', 'howdy', 'hiya', 'sup', "what's up"]
+        is_greeting = any(
+            user_input.lower().strip() == greet or 
+            user_input.lower().strip().startswith(greet + ' ') or
+            user_input.lower().strip().startswith(greet + ',') or
+            user_input.lower().strip().startswith(greet + '!')
+            for greet in greeting_words
+        )
+        
+        if is_greeting:
+            print("\nAssistant: Hello! Welcome to our Skincare Products store. How can I help you today? I can help you find products for your skin type, check prices, add items to your cart, or answer questions about shipping and returns.\n")
             continue
 
         # Process the user input

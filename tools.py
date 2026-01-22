@@ -84,8 +84,12 @@ def search_product_by_name(product_name: str) -> Union[dict, List[dict]]:
 
 @tool
 def get_recommendations(category: str, description: str) -> Union[List[dict], dict]:
-    """Get up to 3 product recommendations based on category and partial match in description.
-       If no matches are found with the description, fetch products by category only.
+    """Get product recommendations by exact category name and description keyword.
+    
+    WARNING: Only use this if user specifies an exact category name.
+    Categories must be exactly: Moisturizers, Cleansers, Serums, Sunscreens, Masks, or Toners
+    
+    For general searches like "oily skin" or "dry skin", use semantic_product_search instead!
     """
     try:
         conn = sqlite3.connect(db)
@@ -163,11 +167,14 @@ def add_to_cart(config: RunnableConfig, product_id: int, quantity: int = 1) -> d
         row = cursor.fetchone()
 
         if not row:
-            return {"message": "Product not found."}
+            return {"success": False, "message": "Product not found in database."}
         
         product_name, price, stock = row
         if stock < quantity:
-            return {"message": "Insufficient stock."}
+            return {
+                "success": False, 
+                "message": f"FAILED: Cannot add '{product_name}' to cart - OUT OF STOCK (stock: {stock}, requested: {quantity}). Suggest an alternative product to the user."
+            }
         
         # Check to see if the product is already in the cart, increase quantity if so.
         cursor.execute("SELECT quantity FROM shopping_carts WHERE user_id = ? AND product_id = ?", (user_id, product_id))
@@ -182,7 +189,7 @@ def add_to_cart(config: RunnableConfig, product_id: int, quantity: int = 1) -> d
                            (user_id, product_id, product_name, price, quantity))
         
         conn.commit()
-        return {"message": "Product added to cart successfully."}
+        return {"success": True, "message": f"SUCCESS: Added {quantity}x '{product_name}' (${price}) to cart."}
     except Exception as e:
         return {"message": f"Error: {str(e)}"}
     finally:

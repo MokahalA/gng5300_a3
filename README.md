@@ -1,37 +1,179 @@
-# Shopping Assistant Chatbot
+# 🧴 Skincare Shopping Assistant Chatbot
 
-This is a skincare products command-line chatbot implementation using LangGraph.
+An AI-powered skincare product shopping assistant built with **LangGraph** and **Ollama**. Features semantic search powered by vector embeddings to help customers find products based on their skin concerns.
 
-## Folder Structure
-- `chatbot.py`: Main entry point of the application which runs the chatbot & implements the graph.
-- `setup.py`: This file must be run in order to set up the SQLite database files.
-- `tools.py`: Contains the LangChain tools for the chatbot.
-- `assistant.py`: Contains the State and Assistant objects.
-- `skincare_products.csv`: Raw data for 48 skincare products.
+Available as both a **Command Line Interface (CLI)** and a **React Web Application**.
 
-A **detailed report** explaining the design and implementation of the system has been provided in the repository as `A3_Report.pdf`. You may also access the report via the following [Google Docs link](https://docs.google.com/document/d/1phvv-uX34RrG9w8Xt4ZW_MiRagiqWRdcWMDiYbSb778/edit?usp=sharing).
+<p align="center">
+  <img src="docs/Chatbot-Demo.png" alt="Web Frontend Demo" width="700"/>
+</p>
 
+---
 
-## How to Run
+## ✨ Features
 
-**NOTE:** You must have a locally installed version of Ollama and the llama3.2:3b model to be able to run the chatbot. (16GB of RAM needed)
+- 🔍 **Semantic Product Search** - Find products by describing skin concerns (e.g., "something for oily skin")
+- 🛒 **Shopping Cart** - Add/remove products with confirmation dialogs
+- 💰 **Price Filtering** - Search within budget constraints (e.g., "under $25")
+- 📋 **Policy Information** - Shipping, returns, and payment details
+- 🔧 **Debug Mode** (Web) - View all tool calls and LLM interactions
 
-https://ollama.com/library/llama3.2:3b 
+---
 
-Set up a virtual environment and activate it:
-    
-    python -m venv venv
-    
-    venv/Scripts/activate
+## 📁 Project Structure
 
-Install the dependencies:
+```
+gng5300_a3/
+├── chatbot.py              # CLI chatbot entry point
+├── api.py                  # FastAPI backend for web frontend
+├── assistant.py            # LangGraph State and Assistant classes
+├── tools.py                # LangChain tools (search, cart, policies)
+├── vector_search.py        # Semantic search with sentence-transformers
+├── setup.py                # Database initialization script
+├── skincare_products.csv   # Product data (48 skincare products)
+├── requirements.txt        # Python dependencies
+├── frontend/               # React web application
+│   ├── src/
+│   │   ├── App.jsx         # Main React component
+│   │   └── index.css       # Styles
+│   └── package.json
+└── docs/                   # Documentation & assets
+    ├── A3_Report.pdf       # Detailed design report
+    ├── Chatbot-Demo.png    # Web frontend screenshot
+    ├── CLI-Demo.png        # CLI screenshot
+    └── graph_diagram.png   # LangGraph workflow diagram
+```
 
-    pip install -r requirements.txt
+A **draft report** explaining the design and implementation of the basic LangChain graphs has been provided in the repository as [`docs/A3_Report.pdf`](docs/A3_Report.pdf). You may also access the report via the following [Google Docs link](https://docs.google.com/document/d/1phvv-uX34RrG9w8Xt4ZW_MiRagiqWRdcWMDiYbSb778/edit?usp=sharing).
 
-Run the setup file to create the database files:
+---
 
-    python setup.py
+## 🔧 Prerequisites
 
-To run the CLI program, simply execute the following command in your terminal or command prompt:
+### 1. Install Ollama
 
-    python chatbot.py
+Download and install Ollama from [ollama.com](https://ollama.com)
+
+Then pull the Llama 3.2 model:
+
+```bash
+ollama pull llama3.2:3b
+```
+
+> ⚠️ **Note:** Requires approximately 16GB of RAM
+
+### 2. Python 3.9+
+
+Ensure you have Python 3.9 or higher installed.
+
+### 3. Node.js (for Web Frontend only)
+
+Required only if using the React frontend. Download from [nodejs.org](https://nodejs.org)
+
+---
+
+## ⚙️ Initial Setup (Required for Both Options)
+
+Run these steps before using either the CLI or Web Frontend.
+
+### Step 1: Create and Activate Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # macOS/Linux
+# venv\Scripts\activate   # Windows
+```
+
+### Step 2: Install Python Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 3: Initialize the Database
+
+```bash
+python setup.py
+```
+
+### Step 4: Build the Vector Search Index
+
+```bash
+python vector_search.py
+```
+
+This creates embeddings for all 48 products to enable semantic search.
+
+---
+
+## 💻 Option 1: CLI Chatbot
+
+The simplest way to interact with the assistant directly in your terminal.
+
+```bash
+python chatbot.py
+```
+
+<p align="center">
+  <img src="docs/CLI-Demo.png" alt="CLI Demo" width="600"/>
+</p>
+
+### Example Queries
+
+- "Show me products for dry skin"
+- "I need a moisturizer under $30"
+- "Add product 5 to my cart"
+- "What's in my cart?"
+- "What's your return policy?"
+
+---
+
+## 🌐 Option 2: Web Frontend (React)
+
+A full-featured web interface with real-time cart view and debug panel.
+
+### Terminal 1 - Start the API Server
+
+```bash
+source venv/bin/activate
+python api.py
+```
+
+The API will run on `http://localhost:8000`
+
+### Terminal 2 - Start the React Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### Open in Browser
+
+Navigate to **http://localhost:5173**
+
+### Web Frontend Features
+
+| Feature | Description |
+|---------|-------------|
+| 💬 **Chat Interface** | Natural conversation with the skincare assistant |
+| 🛒 **Cart Sidebar** | Real-time view of your shopping cart |
+| 🔧 **Debug Panel** | Expandable panel showing all tool calls and LLM reasoning |
+| ✅ **Confirmations** | Dialogs to confirm add/remove cart actions |
+
+---
+
+## 🛠️ Troubleshooting
+
+**Ollama not found**: Make sure Ollama is installed and running (`ollama serve`)
+
+**Port 8000 in use**: Kill existing processes: `lsof -ti:8000 | xargs kill -9`
+
+**Slow first response**: The vector search model loads on first query; subsequent queries are faster
+
+---
+
+## 📝 License
+
+This project was created for GNG5300 Assignment 3.

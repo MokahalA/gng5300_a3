@@ -1,5 +1,25 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
+*.pyo
 
+# Virtual environments
 .venv/
 venv/
+
+# Generated files (run setup.py and vector_search.py to regenerate)
+skincare.sqlite
+skincare.backup.sqlite
+product_vectors.index
+product_mapping.pkl
+
+# Node modules
+frontend/node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
