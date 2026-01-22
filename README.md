@@ -1,13 +1,12 @@
 # 🧴 Skincare Shopping Assistant Chatbot
 
-![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=flat&logo=python&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-🦜-green?style=flat)
-![LangGraph](https://img.shields.io/badge/LangGraph-0.2-1C3C3C?style=flat)
-![Ollama](https://img.shields.io/badge/Ollama-Llama_3.2-black?style=flat)
-![FAISS](https://img.shields.io/badge/FAISS-Vector_Search-blue?style=flat)
-![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=black)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=flat&logo=fastapi&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-Database-003B57?style=flat&logo=sqlite&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![LangChain](https://img.shields.io/badge/🦜_LangChain-1C3C3C?style=for-the-badge)
+![Ollama](https://img.shields.io/badge/Ollama-000000?style=for-the-badge&logo=ollama&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
 A skincare product shopping assistant built with **LangGraph** and **Ollama** (powered by the Llama 3.2 model). Features semantic search powered by vector embeddings to help customers find products based on their skin concerns.
 
