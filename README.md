@@ -1,6 +1,6 @@
 # 🧴 Skincare Shopping Assistant Chatbot
 
-An AI-powered skincare product shopping assistant built with **LangGraph** and **Ollama**. Features semantic search powered by vector embeddings to help customers find products based on their skin concerns.
+A skincare product shopping assistant built with **LangGraph** and **Ollama** (powered by the Llama 3.2 model). Features semantic search powered by vector embeddings to help customers find products based on their skin concerns.
 
 Available as both a **Command Line Interface (CLI)** and a **React Web Application**.
 
